@@ -1,0 +1,30 @@
+{
+  "name": "site-levels-gatsby",
+  "version": "1.0.0",
+  "private": true,
+  "description": "site-levels-gatsby",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "gatsby": "^4.24.0",
+    "gatsby-plugin-image": "^2.24.0",
+    "gatsby-plugin-manifest": "^4.24.0",
+    "gatsby-plugin-postcss": "^5.24.0",
+    "gatsby-plugin-sharp": "^4.24.0",
+    "gatsby-plugin-sitemap": "^5.24.0",
+    "gatsby-source-filesystem": "^4.24.0",
+    "gatsby-source-wordpress": "^6.24.0",
+    "gatsby-transformer-sharp": "^4.24.0",
+    "postcss": "^8.4.16",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  }
+}
