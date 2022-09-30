@@ -1,0 +1,13 @@
+header.header .navbar ul li a {
+    @apply font-700 text-black text-14 relative;
+}
+header.header .navbar ul li a::before {
+    content:"";
+    @apply absolute bottom-[-5px] left-0 w-0 h-[3px] bg-primary-light transition-all duration-300;
+}
+header.header .navbar ul li a:hover::before {
+    @apply w-full transition-all duration-300;
+}
+header.header .logo img {
+    @apply smscreen2:max-w-[110px];
+}

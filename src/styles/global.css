@@ -1,3 +1,62 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "../../static/fonts.scss";
+
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap');
+@import url("https://use.typekit.net/vws7zyr.css");
+
+@layer base {
+  body {
+    @apply p-0 m-0 font-body; 
+    scroll-behavior: smooth;    
+  }
+  .container-fluid {
+    @apply px-120 lgscreen:px-30 smscreen2:px-15;
+  }
+  a, a:hover {
+    @apply transition-all duration-300;
+  }
+}
+
+@layer components {}
+
+@layer utilities {
+  /* .banner-wrapper {
+    @apply bg-[url('/images/banner-bg.png')]
+  } */
+  .blog-category ul li a {
+    @apply uppercase text-12 tracking-0.2 text-black text-opacity-40 font-700 px-[20px] py-[10px] laptop:px-10;
+  }
+  .blog-category ul li a:hover {
+    @apply bg-primary-dark rounded-999 text-primary-light;
+  }
+  .blog-category ul li a.active {
+    @apply bg-primary-dark rounded-999 text-primary-light;
+  }
+  .banner-info .gatsby-image-wrapper {
+    @apply w-full relative pt-[89.83%];
+  }
+  .banner-info .gatsby-image-wrapper > div {
+    @apply hidden !important;
+  }
+  .banner-info .gatsby-image-wrapper img {
+    @apply absolute top-0 left-0 right-0 bottom-0 w-full h-full rounded-tr-10 rounded-br-10 lgscreen:rounded-tr-0 lgscreen:rounded-bl-10;
+  }
+  .banner-info .banner-blog-content ul {
+    @apply flex flex-wrap items-center;
+  }
+  .banner-info .banner-blog-content ul li {
+    @apply relative uppercase text-12 tracking-0.12 pr-20;
+  }
+  .banner-info .banner-blog-content ul li::before {
+    content:"";
+    @apply absolute top-[7px] right-[9px] w-[3px] h-[3px] bg-black;
+  }
+  .banner-info .banner-blog-content ul li:last-child::before {
+    @apply hidden;
+  }
+}
+
+

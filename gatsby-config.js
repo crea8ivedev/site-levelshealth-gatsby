@@ -13,7 +13,7 @@ module.exports = {
   }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-postcss", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
     options: {
-      "icon": "/static/images/icon.png"
+      "icon": "./static/images/icon.png"
     }
   }, {
     resolve: `gatsby-source-filesystem`,
