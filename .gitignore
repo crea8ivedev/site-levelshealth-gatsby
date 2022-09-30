@@ -1,3 +1,13 @@
 node_modules/
 .cache/
 public
+.env
+# apple system files
+.DS_Store
+.eslintrc
+.cache
+# editor
+.vscode
+# sitemaps
+sitemap.xml
+sitemap.xml.gz

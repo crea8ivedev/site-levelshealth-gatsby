@@ -1,3 +1,5 @@
+require("dotenv").config({ path: `.env` });
+
 module.exports = {
   siteMetadata: {
     title: `site-levels-gatsby`,
@@ -6,19 +8,19 @@ module.exports = {
   plugins: [{
     resolve: 'gatsby-source-wordpress',
     options: {
-      "url": "https://levelshealth.com/graphql"
+      "url": process.env.GATSBY_WP_GRAPHQL_URL,
     }
   }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-postcss", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
     options: {
-      "icon": "src/images/icon.png"
+      "icon": "/static/images/icon.png"
     }
   }, {
-    resolve: 'gatsby-source-filesystem',
+    resolve: `gatsby-source-filesystem`,
     options: {
-      "name": "images",
-      "path": "./src/images/"
+      name: `assets`,
+      path: `${__dirname}/static`,
     },
-    __key: "images"
-  }]
+  },
+]
 };
