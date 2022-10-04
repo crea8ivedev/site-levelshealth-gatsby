@@ -17,6 +17,7 @@ const Home = () => {
         nodes {
           id
           title
+          uri
           featuredImage {
             node {
               id
@@ -41,6 +42,7 @@ const Home = () => {
         nodes {
           id
           title
+          uri
           featuredImage {
             node {
               id
@@ -120,31 +122,34 @@ const Home = () => {
         }
 
       </section>
-      {/* {
+      {
         otherPost.nodes.length > 0 && (
-          <section className="other-post-list">
-            <ul className="flex">
+          <section className="other-post-list container mx-auto">
+            <h3 className="my-15 px-20 text-57">Other Post</h3>
+            <ul className="flex flex-row flex-wrap py-30">
               {
                 otherPost.nodes.map((post) => (
-                  <li className="w-6/12" key={post.id}>
-                    <div>
-                      <GatsbyImage
-                        image={getImage(post.featuredImage.node)}
-                        alt={post.featuredImage.node.altText}
-                      />
-                    </div>
-                    <div>
-                      <h4>
-                        {post.title}
-                      </h4>
-                    </div>
+                  <li className="w-3/12 p-20" key={post.id}>
+                    <Link to={post.uri}>
+                      <div>
+                        <GatsbyImage
+                          image={getImage(post.featuredImage.node)}
+                          alt={post.featuredImage.node.altText}
+                        />
+                      </div>
+                      <div>
+                        <h4>
+                          {post.title}
+                        </h4>
+                      </div>
+                    </Link>
                   </li>
                 ))
               }
             </ul>
           </section>
         )
-      } */}
+      }
     </MainLayout>
   )
 }
