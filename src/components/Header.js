@@ -9,7 +9,7 @@ const Header = () => {
         <div className="flex flex-wrap items-center justify-between">
           <div className="logo">
             <Link to="/">
-              <img src="../images/logo.svg" alt="Logo" />
+              <img src="/images/logo.svg" alt="Logo" />
             </Link>
           </div>
           <div className="navbar">
