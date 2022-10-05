@@ -19,7 +19,7 @@ module.exports = {
       },
       type: {
         __all: {
-          limit: 100,
+          limit: 500,
         },
       },
       html: {
