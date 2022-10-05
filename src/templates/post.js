@@ -12,8 +12,8 @@ const PostTemplate = (props) => {
       <section className='breadcrumb'>
         <div className='breadcrumb-bg'>
           <GatsbyImage
-            image={getImage(post.blogSingle?.heroImage)}
-            alt={post.blogSingle?.heroImage?.altText}
+            image={getImage(post.featuredImage?.node)}
+            alt={post.featuredImage?.node?.altText}
           />
         </div>
       </section>
@@ -88,31 +88,35 @@ const PostTemplate = (props) => {
         <div>{post?.title}</div>
         <div>{post?.seo?.metaDesc}</div> */}
         {/* <div>{post?.blogSingle?.readingTime}</div> */}
-        <div className="container-fluid mb-[40px] md:mb-[50px] lg:mb-[70px]">
-          <div className="max-w-[786px] w-full mx-auto">
-            <div className="bg-gray-300 rounded-[8px] p-[15px] sm:p-[30px]">
-              {/* <img src={post?.author?.node?.avatar?.url || "avatar"} alt="avatar" /> */}
-              {/* <div>{post?.author?.node?.name}</div>
+        {post.blogSingle.contentOverview?.length > 0 &&
+          <div className="container-fluid mb-[40px] md:mb-[50px] lg:mb-[70px]">
+            <div className="max-w-[786px] w-full mx-auto">
+              <div className="bg-gray-300 rounded-[8px] p-[15px] sm:p-[30px]">
+                {/* <img src={post?.author?.node?.avatar?.url || "avatar"} alt="avatar" /> */}
+                {/* <div>{post?.author?.node?.name}</div>
               <div>{post?.author?.node?.roles?.nodes?.[0]?.name || "Author"}</div> */}
-              <h6 className="block text-black text-[10px] leading-[12px] md:text-12 md:leading-14 tracking-0.12 uppercase mb-[24px] sm:mb-[30px]">
-                Article highlights
-              </h6>
-              <ul className="global_list">
-                {
-                  post.blogSingle.contentOverview?.length > 0 && post.blogSingle.contentOverview.map((item, index) =>
+                <h6 className="block text-black text-[10px] leading-[12px] md:text-12 md:leading-14 tracking-0.12 uppercase mb-[24px] sm:mb-[30px]">
+                  Article highlights
+                </h6>
+                <ul className="global_list">
+
+                  {post.blogSingle.contentOverview.map((item, index) =>
                     <li>{item.item}</li>
 
-                  )
-                }
-              </ul>
+                  )}
+
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="container-fluid">
-          <div className="max-w-[786px] w-full mx-auto"> 
-            <div className="post-content">{parse(post?.content)} </div>
+        }
+        {post?.content &&
+          <div className="container-fluid">
+            <div className="max-w-[786px] w-full mx-auto">
+              <div className="post-content">{parse(post?.content.replace(/&nbsp;/g, ''))} </div>
+            </div>
           </div>
-        </div>
+        }
       </section>
     </MainLayout >
   )
@@ -160,6 +164,13 @@ export const PostById = graphql`
         readingTime
         contentOverview {
           item
+        }
+      }
+      featuredImage {
+        node {
+          altText
+          gatsbyImage(formats: WEBP, placeholder: BLURRED, width: 1000)
+          mediaItemUrl
         }
       }
     }
