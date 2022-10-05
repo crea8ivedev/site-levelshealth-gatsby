@@ -33,7 +33,7 @@ const makePages = async ({ posts, gatsbyUtilities }, template = "page") => {
 async function getPosts({ graphql, reporter }) {
   const graphqlResult = await graphql(/* GraphQL */ `
     query WpPosts {
-      blogPosts: allWpPost(sort: {fields: date, order: DESC}, limit: 11) {
+      blogPosts: allWpPost(sort: {fields: date, order: DESC}) {
         edges {
           post: node {
             id

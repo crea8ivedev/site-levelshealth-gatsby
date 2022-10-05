@@ -189,6 +189,9 @@
   .breadcrumb-bg .gatsby-image-wrapper {
     @apply w-full relative;
   }
+  .breadcrumb-bg .gatsby-image-wrapper img {
+    @apply w-full;
+  }
 }
 
 
