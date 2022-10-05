@@ -38,7 +38,7 @@ const Home = () => {
           }
         }
       }
-      otherPost: allWpPost(skip:1, sort: {fields: date, order: DESC}, limit: 10) {
+      otherPost: allWpPost(skip:1, sort: {fields: date, order: DESC}) {
         nodes {
           id
           title
@@ -128,7 +128,7 @@ const Home = () => {
             <h3 className="my-15 px-20 text-57">Other Post</h3>
             <ul className="flex flex-row flex-wrap py-30">
               {
-                otherPost.nodes.map((post) => (
+                otherPost.nodes.slice(0, 5).map((post) => (
                   <li className="w-3/12 p-20" key={post.id}>
                     <Link to={post.uri}>
                       <div>

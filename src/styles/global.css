@@ -57,6 +57,113 @@
   .banner-info .banner-blog-content ul li:last-child::before {
     @apply hidden;
   }
+  .breadcrumb {
+    @apply block w-full relative overflow-hidden pt-[75px] lg:pt-[125px] lg:h-[725px];
+  }
+  .breadcrumb:after {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full bg-linear_gradient;
+  }
+  .breadcrumb-bg {
+    @apply block w-full h-full relative;
+  }
+  .breadcrumb-bg img {
+    @apply w-full h-full object-cover object-top block;
+  }
+  .breadcrumb-details {
+    @apply block relative lg:-mt-[98px] p-0;
+  }
+  .breadcrumb-details .title span {
+    @apply block text-black text-[10px] leading-[12px] md:text-12 md:leading-14 tracking-0.12 uppercase mb-[24px];
+  }
+
+  .breadcrumb-details .title h1 {
+    @apply text-black md:text-[60px] md:leading-[60px] text-[36px] leading-[36px] font-400 tracking-minus-0.3em;
+  }
+  .breadcrumb-details h5 {
+    @apply text-black font-400 text-[18px] leading-[130%] md:text-[22px] md:leading-[28px];
+  }
+  .author {
+    @apply flex flex-wrap xsscreen1:flex-wrap-reverse justify-between items-center gap-[20px] mb-[35px] m-0 p-0 w-full;
+  }
+  .author .avatar-details {
+    @apply flex flex-wrap items-center m-0 p-0 gap-[20px];
+  }
+  .author .avatar-details .avatar {
+    @apply flex flex-col items-center justify-center m-0 p-0 w-[50px] h-[50px] rounded-[50%] relative overflow-hidden;
+  }
+  .author .avatar-details .avatar-name {
+    @apply flex flex-col relative gap-[5px] m-0 p-0;
+  }
+  .author .avatar-details .avatar-name h6 {
+    @apply block text-[16px] leading-[20px] tracking-minus-0.1em font-700 m-0 p-0 capitalize;
+  }
+  .author .avatar-details .author-category {
+    @apply flex flex-wrap gap-[5px] m-0 p-0 items-center;
+  }
+  .author .avatar-details .author-category p,
+  .author .time p {
+    @apply text-gray-200 text-[14px] leading-16 m-0 p-0 capitalize tracking-minus-0.1em;
+  }
+  .author .time {
+    @apply flex flex-wrap items-center m-0 p-0 gap-[5px];
+  }
+  .post-details .global_list {
+    @apply block relative m-0 p-0 list-none;
+  }
+  .post-details .global_list li {
+    @apply block relative text-black text-[16px] leading-[24px] font-400 mb-[15px] last:mb-0 m-0 p-0 pl-[24px];
+  }
+  .post-details .global_list li:before {
+    content: "";
+    @apply absolute top-0 left-0 w-[5px] h-[5px] bg-primary-dark rounded-[4px] mt-[9px];
+  }
+  .post-details .post-content {
+    @apply block relative m-0 p-0 overflow-hidden;
+  }
+  .post-details .post-content p:empty {
+    @apply hidden
+  }
+  .post-details .post-content .video {
+    @apply block w-full h-full m-0 mb-30 p-0;
+  }
+  .post-details .post-content .video iframe {
+    @apply block w-full md:h-[541px] m-0 p-0;
+  }
+  .post-details .post-content p {
+    @apply block relative text-black text-[16px] leading-[24px] font-400 mb-[30px] last:mb-0 m-0 p-0;
+  }
+  .post-details .post-content p img {
+    @apply mt-[30px];
+  }
+  .post-details .post-content ul {
+    @apply block relative m-0 mb-[30px] p-0 list-none;
+  }
+  .post-details .post-content ul li {
+    @apply block relative text-black text-[16px] leading-[24px] font-400 mb-[15px] last:mb-0 m-0 p-0 pl-[24px];
+  }
+  .post-details .post-content ul li:before {
+    content: "";
+    @apply absolute top-0 left-0 w-[5px] h-[5px] bg-primary-dark rounded-[4px] mt-[9px];
+  }
+  .post-details .post-content h2 {
+    @apply text-black text-[48px] leading-[100%] font-400 lg:mt-[70px] md:mt-[50px] mt-[40px] mb-30 m-0 p-0;
+  }
+  .post-details .post-content h3 {
+    @apply text-black text-[38px] leading-[100%] font-400 lg:mt-[70px] md:mt-[50px] mt-[40px] mb-30 m-0 p-0;
+  }
+  .post-details .post-content h4 {
+    @apply text-black text-[32px] leading-[100%] font-400 lg:mt-[70px] md:mt-[50px] mt-[40px] mb-30 m-0 p-0;
+  }
+  .post-details .post-content h5 {
+    @apply text-black text-[26px] leading-[100%] font-400 lg:mt-[70px] md:mt-[50px] mt-[40px] mb-30 m-0 p-0;
+  }
+  .post-details .post-content h6 {
+    @apply text-black text-[20px] leading-[100%] font-400 lg:mt-[70px] md:mt-[50px] mt-[40px] mb-30 m-0 p-0;
+  }
+  .post-details .post-content img + p {
+    @apply mt-30
+  }
 }
 
 
