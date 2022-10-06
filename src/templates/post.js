@@ -3,20 +3,22 @@ import { graphql } from "gatsby";
 import MainLayout from "../components/Layout/MainLayout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import parse from "html-react-parser";
+import Post from "../modules/Post";
 
 const PostTemplate = (props) => {
   const post = props.data.post;
 
   return (
     <MainLayout>
-      <section className='breadcrumb'>
+      <Post modules={post} />
+      {/* <section className='breadcrumb'>
         <div className='breadcrumb-bg'>
           <GatsbyImage
             image={getImage(post.featuredImage?.node)}
             alt={post.featuredImage?.node?.altText}
           />
         </div>
-      </section>
+      </section> */}
       <section className='breadcrumb-details mb-[50px] lg:mb-[90px]'>
         <div className='container-fluid'>
           <div className='max-w-[1070px] w-full mx-auto'>
@@ -78,16 +80,6 @@ const PostTemplate = (props) => {
         </div>
       </article>
       <section className="post-details">
-        {/* <div>
-          <GatsbyImage
-            image={getImage(post.blogSingle?.heroImage)}
-            alt={post.blogSingle?.heroImage?.altText}
-          />
-        </div> */}
-        {/* <div>{post?.categories?.nodes?.[1]?.name}</div>
-        <div>{post?.title}</div>
-        <div>{post?.seo?.metaDesc}</div> */}
-        {/* <div>{post?.blogSingle?.readingTime}</div> */}
         {post.blogSingle.contentOverview?.length > 0 &&
           <div className="container-fluid mb-[40px] md:mb-[50px] lg:mb-[70px]">
             <div className="max-w-[786px] w-full mx-auto">
@@ -126,6 +118,7 @@ export default PostTemplate;
 export const PostById = graphql`
   query postById ($id: String) {
     post: wpPost(id: { eq: $id }) {
+      ...PostModulesFragment
       id
       uri
       link
@@ -164,13 +157,6 @@ export const PostById = graphql`
         readingTime
         contentOverview {
           item
-        }
-      }
-      featuredImage {
-        node {
-          altText
-          gatsbyImage(formats: WEBP, placeholder: BLURRED, width: 1000)
-          mediaItemUrl
         }
       }
     }

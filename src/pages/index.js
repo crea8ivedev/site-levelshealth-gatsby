@@ -11,6 +11,8 @@ const Home = () => {
         nodes {
           id
           name
+          slug
+          uri
         }
       }
       recentPosts: allWpPost(sort: {fields: date, order: DESC}, limit: 1) {
@@ -71,7 +73,7 @@ const Home = () => {
               {
                 categories.nodes.map((category) => (
                   <li key={category.id}>
-                    <a href="/">
+                    <a href={category.uri}>
                       {category.name}
                     </a>
                   </li>

@@ -5,9 +5,9 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      body: ['"TT Hoves"'],
+      body: ['"TT Hoves"'],  
     },
-    colors: {
+    colors: {      
       white: '#FFFFFF',
       black: '#000000',
       primary: {
@@ -17,7 +17,6 @@ module.exports = {
       gray: {
         100: '#8D8D8D',
         200: '#5D6465',
-        300: '#F5F5F5',
       },
       transparent: 'transparent',
     },
@@ -47,15 +46,15 @@ module.exports = {
       25: '25px',
       30: '30px',
       50: '50px',
-
+      
     },
     fontSize: {
       12: '12px',
       14: '14px',
       57: '57px',
-
+      
     },
-    letterSpacing: {
+    letterSpacing: {       
       0.2: '0.2em',
       0.12: '0.12em',
       'minus-0.1em': '-0.01em',
@@ -70,20 +69,20 @@ module.exports = {
       1: '1px',
       10: '10px',
       999: '999px',
-
+     
     },
     borderWidth: {
       0.6: '0.6px',
       1: '1px',
-
+    
     },
-    fontWeight: {
-      400: '400',
-      700: '700',
+    fontWeight: {      
+      400: '400', 
+      700: '700',        
     },
-    translate: {
+    translate: {      
       0: '0px',
-      '7_minus': '-7px',
+      '7_minus': '-7px',      
       minus_50: '-50%',
     },
     inset: {
@@ -103,15 +102,15 @@ module.exports = {
       70: '70px',
       90: '90px',
       100: '100px',
-
+      
     },
     backgroundImage: theme => ({
       none: 'none',
       gradient: 'radial-gradient(100% 62.34% at 0% 37.66%, #FFFFFF 38.02%, #E6E6E6 100%)',
       linear_gradient: 'linear-gradient(180deg, rgba(255, 255, 255, 0) 38.02%, #FFFFFF 100%)',
     }),
-    boxShadow: {
-      card: '4px 4px 10px rgba(0, 0, 0, 0.04);',
+    boxShadow: { 
+        card: '4px 4px 10px rgba(0, 0, 0, 0.04);',     
     },
     extend: {
       maxWidth: {
@@ -170,49 +169,49 @@ module.exports = {
   plugins: [
     // require('tailwindcss'),
     function ({ addComponents }) {
-      addComponents({
+        addComponents({
 
-        '.container-xl': {
-          maxWidth: '100%',
-          '@screen sm': {
-            maxWidth: '640px',
-          },
-          '@screen md': {
-            maxWidth: '768px',
-          },
-          '@screen lg': {
-            maxWidth: '940px',
-          },
-          '@screen xl': {
-            maxWidth: '1140px',
-          },
-          '@screen 2xl': {
-            maxWidth: '1340px',
-            margin: 'auto',
-          },
-        },
+            '.container-xl': {
+                maxWidth: '100%',
+                '@screen sm': {
+                    maxWidth: '640px',
+                },
+                '@screen md': {
+                    maxWidth: '768px',
+                },
+                '@screen lg': {
+                    maxWidth: '940px',
+                },
+                '@screen xl': {
+                    maxWidth: '1140px',
+                },
+                '@screen 2xl': {
+                    maxWidth: '1340px',
+                    margin: 'auto',
+                },
+            },
 
 
-        '.container': {
-          maxWidth: '100%',
-          '@screen sm': {
-            maxWidth: '640px',
-          },
-          '@screen md': {
-            maxWidth: '768px',
-          },
-          '@screen lg': {
-            maxWidth: '940px',
-          },
-          '@screen xl': {
-            maxWidth: '1140px',
-          },
-          '@screen 2xl': {
-            maxWidth: '1240px',
-          },
-        }
-      })
+            '.container': {
+                maxWidth: '100%',
+                '@screen sm': {
+                    maxWidth: '640px',
+                },
+                '@screen md': {
+                    maxWidth: '768px',
+                },
+                '@screen lg': {
+                    maxWidth: '940px',
+                },
+                '@screen xl': {
+                    maxWidth: '1140px',
+                },
+                '@screen 2xl': {
+                    maxWidth: '1240px',
+                },
+            }
+        })
     }
 
-  ],
+],
 }

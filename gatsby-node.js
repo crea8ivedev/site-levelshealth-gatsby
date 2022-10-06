@@ -8,6 +8,7 @@ exports.createPages = async (gatsbyUtilities) => {
   }
   
   await makePages({ posts: allData.blogPosts, gatsbyUtilities }, "post");
+  await makePages({ posts: allData.categoryPages, gatsbyUtilities }, "categories");
 };
 
 /**
@@ -41,6 +42,15 @@ async function getPosts({ graphql, reporter }) {
           }
         }
       }
+      categoryPages: allWpCategory {
+        edges {
+          post: node {
+            id
+            slug
+            uri
+          }
+        }
+      }
     }
   `);
   // error if there are errors
@@ -55,5 +65,6 @@ async function getPosts({ graphql, reporter }) {
   // send the posts graphql found in wp
   return {
     blogPosts: graphqlResult.data.blogPosts.edges,
+    categoryPages: graphqlResult.data.categoryPages.edges,
   };
 }
