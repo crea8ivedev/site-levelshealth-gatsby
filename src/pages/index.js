@@ -99,7 +99,7 @@ const Home = () => {
                           }
                         </ul>
                         <h1 className='lg:text-57 xlscreen:text-[47px] lgscreen:text-[30px] lgscreen:leading-[35px] text-black font-400 tracking-minus-0.3em max-w-[431px] leading-[57px] mt-30 smscreen2:mt-15'>
-                          {featurePost.title}
+                          <Link to={featurePost?.uri}>{featurePost.title}</Link>
                         </h1>
                         <div className='btm-text mt-30 flex flex-col'>
                           <span className='text-14 font-700 text-black tracking-minus-0.1em'>{featurePost.author.name}</span>
@@ -111,10 +111,12 @@ const Home = () => {
                       {/* <div className='img gatsby-image-wrapper'>
                         <img src="../images/banner-img.jpg" alt="The ultimate guide to metabolic health" />
                       </div> */}
-                      <GatsbyImage
-                        image={getImage(featurePost.featuredImage.node)}
-                        alt={featurePost.featuredImage.node.altText}
-                      />
+                      <Link to={featurePost?.uri}>
+                        <GatsbyImage
+                          image={getImage(featurePost.featuredImage.node)}
+                          alt={featurePost.featuredImage.node.altText}
+                        />
+                      </Link>
                     </div>
                   </div>
                 </div>

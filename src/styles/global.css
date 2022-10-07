@@ -29,6 +29,9 @@
   /* .banner-wrapper {
     @apply bg-[url('../../../public/images/banner-bg.png')]
   } */
+  .blog-category ul {
+    @apply smscreen2:flex-col smscreen2:text-center smscreen2:gap-y-3 smscreen2:pt-30 lgscreen:pt-30;
+  }
   .blog-category ul li a {
     @apply uppercase text-12 tracking-0.2 text-black text-opacity-40 font-700 px-[20px] py-[10px] laptop:px-10;
   }
@@ -69,6 +72,12 @@
   }
   .breadcrumb-bg {
     @apply block w-full h-full relative;
+  }
+  .breadcrumb-bg .gatsby-image-wrapper {
+    @apply w-full relative;
+  }
+  .breadcrumb-bg .gatsby-image-wrapper img {
+    @apply w-full h-full object-cover;
   }
   .breadcrumb-bg img {
     @apply w-full h-full object-cover object-top block;
@@ -156,7 +165,10 @@
     @apply mb-[0.25em] h-full;
   }
   .recent_posts_grid .recent_posts_item .post_table .post_table-cell .post_thumbnail .gatsby-image-wrapper {
-    @apply w-full;
+    @apply w-full h-[250px];
+  }
+  .recent_posts_top .recent_posts_grid .recent_posts_item:first-child .post_table .post_table-cell .gatsby-image-wrapper {
+    @apply h-full;
   }
   .recent_posts_grid .recent_posts_item .post_table .post_table-cell .post_thumbnail img {
     @apply w-full h-full object-cover;

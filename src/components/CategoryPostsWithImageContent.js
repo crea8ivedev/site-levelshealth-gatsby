@@ -50,10 +50,12 @@ const CategoryPostsWithImageContent = ({ module }) => {
                   <div className='post_table'>
                     <a href='javascript:void(0);' className='post_table-cell'>
                       <div className='post_thumbnail'>
-                        <GatsbyImage
-                          image={getImage(item.featuredImage?.node)}
-                          alt={item.featuredImage?.node?.altText}
-                        />
+                        <Link to={item?.uri}>
+                          <GatsbyImage
+                            image={getImage(item.featuredImage?.node)}
+                            alt={item.featuredImage?.node?.altText}
+                          />
+                        </Link>
                       </div>
                     </a>
                     <div className='post_info'>
@@ -62,7 +64,7 @@ const CategoryPostsWithImageContent = ({ module }) => {
                           <div className='post_table_cell'>
                             <div className='post-intro'>
                               <p className='post_types'>
-                                <a href="#" rel="tag">{item?.types?.nodes?.[0]?.name}</a>
+                                <Link to={item?.types?.nodes?.[0]?.uri}>{item?.types?.nodes?.[0]?.name}</Link>
                               </p>
                               <h4 className='post_title'>
                                 {/* <a href="#" title="10 Healthy Nut Butters">10 Healthy Nut Butters</a> */}
@@ -110,7 +112,7 @@ const CategoryPostsWithImageContent = ({ module }) => {
                                       <div className="table-cell tc_avatar align-middle">
                                         <div className="photo-auhor-v">
                                           <a href="#" title="">
-                                          <img alt="" src={item?.author?.node?.avatar?.url || "avatar"} className="avatar avatar-32 photo" height="32" width="32" />
+                                            <img alt="" src={item?.author?.node?.avatar?.url || "avatar"} className="avatar avatar-32 photo" height="32" width="32" />
                                           </a>
                                         </div>
                                       </div>
@@ -158,6 +160,52 @@ export const CategoryPostsWithImageContentFragment = graphql`
         types {
           nodes {
             name
+            uri
+          }
+        }
+        featuredImage {
+          node {
+            altText
+            gatsbyImage(formats: WEBP, placeholder: BLURRED, width: 1000)
+          }
+        }
+        author {
+          node {
+            name
+            url
+            avatar {
+              url
+            }
+            roles {
+              nodes {
+                name
+                displayName
+              }
+            }
+          }
+        }
+        modified(formatString: "DD MMMM, YYYY")
+      }
+    }
+  }
+`;
+export const ArticleTypePostsWithImageContentFragment = graphql`
+  fragment ArticleTypePostsWithImageContentFragment on WpType {
+    name
+    slug
+    uri
+    posts {
+      nodes {
+        title
+        uri
+        seo {
+          metaDesc
+          readingTime
+        }
+        types {
+          nodes {
+            name
+            uri
           }
         }
         featuredImage {

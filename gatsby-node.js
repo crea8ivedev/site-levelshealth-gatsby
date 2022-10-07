@@ -6,9 +6,10 @@ exports.createPages = async (gatsbyUtilities) => {
   if (!allData && !allData.pages.length) {
     return;
   }
-  
+
   await makePages({ posts: allData.blogPosts, gatsbyUtilities }, "post");
   await makePages({ posts: allData.categoryPages, gatsbyUtilities }, "categories");
+  await makePages({ posts: allData.articleTypePages, gatsbyUtilities }, "articleTypes");
 };
 
 /**
@@ -51,6 +52,15 @@ async function getPosts({ graphql, reporter }) {
           }
         }
       }
+      articleTypePages: allWpType {
+        edges {
+          post: node {
+            id
+            uri
+            name
+          }
+        }
+      }
     }
   `);
   // error if there are errors
@@ -66,5 +76,6 @@ async function getPosts({ graphql, reporter }) {
   return {
     blogPosts: graphqlResult.data.blogPosts.edges,
     categoryPages: graphqlResult.data.categoryPages.edges,
+    articleTypePages: graphqlResult.data.articleTypePages.edges,
   };
 }
